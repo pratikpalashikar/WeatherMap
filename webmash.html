@@ -1,0 +1,44 @@
+
+<!DOCTYPE html>
+<!--
+    Student Name:
+-->
+<html>
+  <head>
+    <title>Web Mashup: Display Address with Weather Details</title>
+      <meta charset="utf-8"/>
+      <script type="text/javascript" src="webmash.js"></script>
+    <style>
+      html, body {
+        height: 100%;
+
+        margin: 0;
+        padding: 0;
+      }
+      #map {
+        align-items: center;
+        height:600px;
+        width: 500px;
+        margin:0px auto;
+        display:inline-block
+      }
+      #clearButton{
+
+        display: inline-block;
+      }
+      #outerdiv {width: 90%; height: 90%; position:fixed; text-align:center}
+    </style>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpGbIEJqC4MlHC4RtWo8FsC47qSIEdrg0"
+    async defer></script>
+  </head>
+  <body onload="initMap()">
+    <div id="outerdiv">
+    <div id="map"></div>
+    <button id="clearButton">Clear</button>
+      <div id="output"></div>
+  </div>
+
+
+
+  </body>
+</html>
