@@ -1,44 +1,70 @@
-
 <!DOCTYPE html>
 <!--
     Student Name:
 -->
 <html>
-  <head>
+
+<head>
     <title>Web Mashup: Display Address with Weather Details</title>
-      <meta charset="utf-8"/>
-      <script type="text/javascript" src="webmash.js"></script>
+    <meta charset="utf-8" />
+    <script type="text/javascript" src="webmash.js"></script>
     <style>
-      html, body {
-        height: 100%;
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+        }
 
-        margin: 0;
-        padding: 0;
-      }
-      #map {
-        align-items: center;
-        height:600px;
-        width: 500px;
-        margin:0px auto;
-        display:inline-block
-      }
-      #clearButton{
+        #map {
 
-        display: inline-block;
-      }
-      #outerdiv {width: 90%; height: 90%; position:fixed; text-align:center}
+            height: 600px;
+            width: 500px;
+            padding: 20px;
+            float: left;
+        }
+
+        #clearButton {
+          margin-left: auto;
+          margin-top: 600px;
+          border-radius: 8px;
+          padding: 14px 40px;
+          background-color: #f44336;
+
+
+        }
+
+        .output {
+            float: right;
+            margin-top:10px;
+            height: 600px;
+            width: 500px;
+            border: 2px solid;
+            overflow-y: auto;
+
+        }
+
+        #outerdiv {
+            width: 90%;
+            height: 90%;
+            position: fixed;
+            text-align: center
+        }
     </style>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpGbIEJqC4MlHC4RtWo8FsC47qSIEdrg0"
-    async defer></script>
-  </head>
-  <body onload="initMap()">
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpGbIEJqC4MlHC4RtWo8FsC47qSIEdrg0" async defer></script>
+</head>
+
+<body onload="initMap()">
+
     <div id="outerdiv">
-    <div id="map"></div>
-    <button id="clearButton">Clear</button>
-      <div id="output"></div>
-  </div>
+        <div id="map"></div>
+        <div class="output">
+            <label>Address history</label>
+            <ul id="result">
+            <ul>
+        </div>
+        <button id="clearButton" onclick="clean();">Clear</button>
+    </div>
+</body>
 
-
-
-  </body>
 </html>
