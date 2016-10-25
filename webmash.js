@@ -6,6 +6,7 @@ var map;
 var markerArray = [];
 var contentString = "";
 var addressList = new Array();
+
 function initMap() {
 
     var myLatLng = {
@@ -14,6 +15,7 @@ function initMap() {
     };
     var geocoder = new google.maps.Geocoder;
     var marker;
+    //Zooms to the default position as mentioned in the assignment
     map = new google.maps.Map(document.getElementById('map'), {
         center: {
             lat: 32.75,
@@ -21,10 +23,12 @@ function initMap() {
         },
         zoom: 17
     });
+    //displays the content String along with the address and the weather details
     var infowindow = new google.maps.InfoWindow({
         content: contentString
     });
 
+    //Places the marker on the map
     function placeMarker(myLatLng) {
         clearMarkers();
         marker = new google.maps.Marker({
@@ -49,9 +53,9 @@ function initMap() {
 }
 
 
-function clean(){
-	addressList = [];
-	  document.getElementById("result").innerHTML = "";
+function clean() {
+    addressList = [];
+    document.getElementById("result").innerHTML = "";
 
 }
 
@@ -117,12 +121,12 @@ function sendRequest(lat, lng, infowindow, geocoder) {
             }, function(results, status) {
                 if (status == "OK") {
                     address = results[1].formatted_address;
-                    infowindow.setContent(contentString + "<br>" + address);
+                    infowindow.setContent(address + "<br>" + contentString);
                     addressList.push(address);
-										document.getElementById("result").innerHTML += "<li>" + address + "</li>";
-                  /*  for (var i = 0; i < addressList.length; i++) {
-                        document.getElementById("result").innerHTML += "<li>" + addressList[i] + "</li>";
-                    }*/
+                    document.getElementById("result").innerHTML += "<li>" + address + "<br>" + "Weather Details" + contentString + "</li>";
+                    /*  for (var i = 0; i < addressList.length; i++) {
+                          document.getElementById("result").innerHTML += "<li>" + addressList[i] + "</li>";
+                      }*/
                 }
             });
 
